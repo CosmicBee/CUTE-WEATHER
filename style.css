@@ -17,6 +17,11 @@ h3 {
 body {
   text-align: center;
   background-color: #ff0055;
+  background-image: url(https://media1.giphy.com/media/pVGsAWjzvXcZW4ZBTE/giphy.gif);
+  resize: both;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 h2 {
   color: rgb(81, 21, 109);
