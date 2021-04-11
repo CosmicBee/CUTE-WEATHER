@@ -54,10 +54,10 @@ window.onload = function () {
     .then(function (response) {
       // handle success
       let cityName = response.data.name;
-      let humidity = response.data.main.humidity;
-      let windSpeed = response.data.wind.speed;
+      let humidity = Math.round(response.data.main.humidity);
+      let windSpeed = Math.round (response.data.wind.speed);
       let temperatureDesc = response.data.weather[0].description;
-      let weather = response.data.main.temp;
+      let weather =Math.round( response.data.main.temp);
 
      
 
