@@ -5,7 +5,8 @@ h1 {
   text-align: center;
 }
 
-h3 {
+h3,
+span {
   font-family: "Berkshire Swash", cursive;
   text-align: center;
   color: #4aec58;

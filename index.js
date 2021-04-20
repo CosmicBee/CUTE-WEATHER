@@ -9,12 +9,17 @@ let rainHeader = document.querySelector("#rainTxt");
 let timeHeader = document.querySelector("#timeTxt");
 
  let iconElement = document.querySelector("#icon");
-let cityTElement =document.querySelector("cityT");
+let cityTElement =document.querySelector("cityTime");
 form.addEventListener("submit", function (e) {
   
   const cityName = document.querySelector("#cityTxt").value;
 
   cityNameHeader.innerHTML = cityName;
+
+
+
+
+  
 
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${API_KEY}`;
 
@@ -27,7 +32,7 @@ form.addEventListener("submit", function (e) {
       let temperatureDesc =response.data.weather[0].description;
       let weather = response.data.main.temp;
 
-      let cityT=response.data.dt;
+      let cityTime=response.data.dt;
  
 
       humidityHeader.innerHTML += ` ${humidity}`;
@@ -42,7 +47,8 @@ form.addEventListener("submit", function (e) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
 
-        cityTime.innerHTML+=`${cityT}`;
+   cityTime.innerHTML = formatD(response.data.dt * 1000);
+        
 
 
       timeHeader.innerHTML = getCurrentTime();
@@ -64,6 +70,16 @@ form.addEventListener("submit", function (e) {
 
 
 
+  function displayFahrenheitTemperature(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperatureTxt");
+    let fahrenheitTemperature = (6 * 9/5) + 32 ;
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  }
+
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 
 
@@ -83,7 +99,7 @@ window.onload = function () {
 
     
 
-      let cityT=formatD(response.data.dt);
+     cityTime.innerHTML = formatD(response.data.dt * 1000);
 
       
      
@@ -114,27 +130,43 @@ window.onload = function () {
 
 
 
+
+
+
+
  
-
 function formatD(timestamp) {
-  let d = new Date(timestamp * 1000);
-  let day = d.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-
-  let hours = d.getHours();
+  let date = new Date(timestamp);
+  let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = d.getMinutes();
+  let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
 
-  return `${days[day]} ${hours}:${minutes}`;
-  
- 
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
 }
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
     
 
 
