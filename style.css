@@ -47,5 +47,14 @@ body {
 }
 h2 {
   color: #5053f8;
+}
+
+#currentTime {
+  color: #5053f8;
+
+  font-family: "Berkshire Swash", cursive;
+}
+
+html {
   font-size: 20px;
 }
