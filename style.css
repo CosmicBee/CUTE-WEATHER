@@ -32,6 +32,21 @@ span {
   color: purple;
 }
 
+p:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgb(226, 5, 255);
+}
+p {
+  border-radius: 30px;
+  transition: background-color 5s ease-out 100ms;
+  height: 60px;
+  width: 120px;
+  outline: none;
+  font-family: "Berkshire Swash", cursive;
+  cursor: crosshair;
+  margin: auto;
+}
+
 body {
   text-align: center;
   background-color: #ff0055;

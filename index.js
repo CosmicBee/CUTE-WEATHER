@@ -4,7 +4,7 @@ let form = document.querySelector("#form");
 
 let humidityHeader = document.querySelector("#humidityTxt");
 let windHeader = document.querySelector("#windTxt");
-let temperatureHeader = document.querySelector("#temperatureTxt");
+let temperatureHeader = document.querySelector("#temperature");
 let rainHeader = document.querySelector("#rainTxt");
 let timeHeader = document.querySelector("#timeTxt");
 
@@ -72,7 +72,7 @@ form.addEventListener("submit", function (e) {
 
   function displayFahrenheitTemperature(event) {
     event.preventDefault();
-    let temperatureElement = document.querySelector("#temperatureTxt");
+    let temperatureElement = document.querySelector("#temperature");
     let fahrenheitTemperature = (6 * 9/5) + 32 ;
     temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
   }
@@ -82,7 +82,9 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 
-
+function displayCelsiusTemperature(event){
+  event.preventDefault();
+}
 
 window.onload = function () {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&appid=${API_KEY}`;
@@ -118,7 +120,7 @@ window.onload = function () {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
 
-  cityTime.innerHTML+=`${cityT}`;
+ 
 
    
     })
@@ -202,6 +204,8 @@ function formatDate(date) {
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
+
+
 
 
 
