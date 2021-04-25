@@ -35,10 +35,10 @@ form.addEventListener("submit", function (e) {
       let cityTime=response.data.dt;
  
 
-      humidityHeader.innerHTML += ` ${humidity}`;
-      windHeader.innerHTML += ` ${windSpeed}km`;
-      temperatureHeader.innerHTML += ` ${weather}`;
-      rainHeader.innerHTML += ` ${temperatureDesc}.`;
+      humidityHeader.innerHTML = ` ${humidity}`;
+      windHeader.innerHTML = ` ${windSpeed}km`;
+      temperatureHeader.innerHTML = ` ${weather}`;
+      rainHeader.innerHTML = ` ${temperatureDesc}.`;
       
        iconElement.setAttribute(
     "src",
@@ -204,8 +204,3 @@ function formatDate(date) {
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
-
-
-
-
-
