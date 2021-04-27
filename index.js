@@ -32,7 +32,7 @@ form.addEventListener("submit", function (e) {
       let temperatureDesc =response.data.weather[0].description;
       let weather = Math.round(response.data.main.temp);
 
-      let cityTime=response.data.dt;
+     
  
 
       humidityHeader.innerHTML = `Humidity: ${humidity}`;
@@ -82,9 +82,7 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 
-function displayCelsiusTemperature(event){
-  event.preventDefault();
-}
+
 
 window.onload = function () {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&appid=${API_KEY}`;
@@ -101,7 +99,7 @@ window.onload = function () {
 
     
 
-     cityTime.innerHTML = formatD(response.data.dt * 1000);
+   
 
       
      
@@ -137,37 +135,7 @@ window.onload = function () {
 
 
  
-function formatD(timestamp) {
-  let date = new Date(timestamp);
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
 
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
-}
-
-function formatDay(timestamp) {
-  let date = new Date(timestamp * 1000);
-  let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-  return days[day];
-}
 
     
 
