@@ -27,18 +27,18 @@ form.addEventListener("submit", function (e) {
     .get(url)
     .then(function (response) {
       
-      let humidity =  response.data.main.humidity;
-      let windSpeed =response.data.wind.speed;
+      let humidity = Math.round( response.data.main.humidity);
+      let windSpeed =Math.round(response.data.wind.speed);
       let temperatureDesc =response.data.weather[0].description;
-      let weather = response.data.main.temp;
+      let weather = Math.round(response.data.main.temp);
 
       let cityTime=response.data.dt;
  
 
-      humidityHeader.innerHTML = ` ${humidity}`;
-      windHeader.innerHTML = ` ${windSpeed}km`;
-      temperatureHeader.innerHTML = ` ${weather}`;
-      rainHeader.innerHTML = ` ${temperatureDesc}.`;
+      humidityHeader.innerHTML = `Humidity: ${humidity}`;
+      windHeader.innerHTML = `Wind: ${windSpeed}km`;
+      temperatureHeader.innerHTML = `Temperature: ${weather}`;
+      rainHeader.innerHTML = `Weather Description: ${temperatureDesc}.`;
       
        iconElement.setAttribute(
     "src",
@@ -108,10 +108,10 @@ window.onload = function () {
 
       cityNameHeader.innerHTML = cityName;
 
-      humidityHeader.innerHTML += ` ${humidity}`;
-      windHeader.innerHTML += ` ${windSpeed}km`;
-      temperatureHeader.innerHTML += ` ${weather}`;
-      rainHeader.innerHTML += ` ${temperatureDesc}.`;
+      humidityHeader.innerHTML += `Humidity: ${humidity}`;
+      windHeader.innerHTML += ` Wind: ${windSpeed}km`;
+      temperatureHeader.innerHTML += `Temperature: ${weather}`;
+      rainHeader.innerHTML += `Weather Description: ${temperatureDesc}.`;
 
          iconElement.setAttribute(
     "src",
