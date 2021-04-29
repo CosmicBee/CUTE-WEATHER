@@ -73,13 +73,26 @@ form.addEventListener("submit", function (e) {
   function displayFahrenheitTemperature(event) {
     event.preventDefault();
     let temperatureElement = document.querySelector("#temperature");
-    let fahrenheitTemperature = (6 * 9/5) + 32 ;
+    let fahrenheitTemperature = (8 * 9/5) + 32 ;
     temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
   }
 
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+
+
+  function displayCelTemperature(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    let celTemperature = (46-32)* 5/9 ;
+    temperatureElement.innerHTML = Math.round(celTemperature);
+  }
+
+
+let celLink = document.querySelector("#cel-link");
+celLink.addEventListener("click", displayCelTemperature);
 
 
 
