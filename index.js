@@ -37,7 +37,7 @@ form.addEventListener("submit", function (e) {
 
       humidityHeader.innerHTML = `Humidity: ${humidity}`;
       windHeader.innerHTML = `Wind: ${windSpeed}km`;
-      temperatureHeader.innerHTML = `Temperature: ${weather}°`;
+      temperatureHeader.innerHTML = `Temperature: ${weather} c°`;
       rainHeader.innerHTML = `Weather Description: ${temperatureDesc}.`;
       
        iconElement.setAttribute(
@@ -108,7 +108,7 @@ window.onload = function () {
 
       humidityHeader.innerHTML += `Humidity: ${humidity}`;
       windHeader.innerHTML += ` Wind: ${windSpeed}km`;
-      temperatureHeader.innerHTML += `Temperature: ${weather}°`;
+      temperatureHeader.innerHTML += `Temperature: ${weather} c°`;
       rainHeader.innerHTML += `Weather Description: ${temperatureDesc}.`;
 
          iconElement.setAttribute(
